@@ -1,0 +1,23 @@
+[package]
+name = "emlx"
+version = "0.1.0"
+edition = "2018"
+authors = ["Benedikt Terhechte <terhechte@gmail.com>"]
+license = "MIT"
+description = "Prse Apple Mail.app emlx files into eml and related metadata."
+readme = "README.md"
+repository = "https://github.com/terhechte/emlx"
+homepage = "https://github.com/terhechte/emlx"
+keywords = ["email", "mail", "apple", "eml", "emlx"]
+categories = ["email", "parser-implementations"]
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+thiserror = "1.0.29"
+plist = "1.2.1"
+tracing = {version = "0.1.29", optional = true }
+
+[features]
+default = []
+use-tracing = ["tracing"]
