@@ -1,6 +1,6 @@
 [package]
 name = "emlx"
-version = "0.1.0"
+version = "0.1.5"
 edition = "2018"
 authors = ["Benedikt Terhechte <terhechte@gmail.com>"]
 license = "MIT"
@@ -18,6 +18,10 @@ thiserror = "1.0.29"
 plist = "1.2.1"
 tracing = {version = "0.1.29", optional = true }
 
+# Use a fork until the required changes are merged upstream.
+email-parser = { git = "https://github.com/terhechte/email-parser", features = ["sender", "to", "in-reply-to", "date", "subject", "mime", "allow-duplicate-headers", "compatibility-fixes"], optional = true}
+
 [features]
-default = []
+default = ["use-email-parser"]
 use-tracing = ["tracing"]
+use-email-parser = ["email-parser"]

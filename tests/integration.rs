@@ -50,6 +50,21 @@ mod tests {
     }
 
     #[test]
+    fn test_full_parse() {
+        let contents = include_bytes!("emails/1.emlx");
+        #[cfg(feature = "use-email-parser")]
+        {
+            let parsed = parse_emlx(contents).unwrap();
+            assert_eq!(
+                &parsed.email.subject.unwrap().to_string(),
+                " Fwd: Lorem ipsum"
+            );
+        }
+        #[cfg(not(feature = "use-email-parser"))]
+        assert!(true)
+    }
+
+    #[test]
     fn test_emails_broken() {
         let contents = include_bytes!("emails/broken1.emlx");
         assert!(parse_emlx(contents).is_err());

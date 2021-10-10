@@ -7,7 +7,16 @@ Parses Apple Mail.app `Emlx` Files.
 
 Retrives the actual message, meta information as plist, and the flags of the message.
 
-The actual message is returned as a `&[u8]` slice in the `eml` format and can then be parsed with other Rust `eml` parsers, such as [eml-parser](https://crates.io/crates/eml-parser).
+The actual message is returned as a `&[u8]` slice in the `eml` format.
+
+This `message` part is almost in the `eml` format, except that
+Apple uses `LF` for linebreaks instead of `CRLF`. Currently,
+`emlx` has a feature switch (`use-email-parser`) which enables
+a custom fork of the [`email-parser`](https://crates.io/crates/email-parser) crate and already parses
+the email for you. It can then be found as the `email` property
+on the [`Mail`] struct.
+
+This feature switch is **on** by default.
 
 ## Usage
 
