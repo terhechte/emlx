@@ -87,7 +87,7 @@ impl Flags {
 
 pub fn detect(content: &[u8]) -> Result<(Flags, Dictionary), ParseError> {
     #[cfg(feature = "use-tracing")]
-    trace!("Read Plist Part:\n{:?}\n", std::str::from_utf8(content));
+    tracing::trace!("Read Plist Part:\n{:?}\n", std::str::from_utf8(content));
 
     let cursor = Cursor::new(content);
     let reader = BufReader::new(cursor);
