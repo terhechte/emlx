@@ -19,7 +19,7 @@ plist = "1.2.1"
 tracing = {version = "0.1.29", optional = true }
 
 # Use a fork until the required changes are merged upstream.
-email-parser = { git = "https://github.com/terhechte/email-parser", features = ["sender", "to", "in-reply-to", "date", "subject", "mime", "allow-duplicate-headers", "compatibility-fixes"], optional = true}
+email-parser = { git = "https://github.com/terhechte/email-parser", rev="dba59d86771f7df67bb9e7f3a2c4b1e36b02d19b", features = ["sender", "to", "in-reply-to", "date", "subject", "mime", "allow-duplicate-headers", "compatibility-fixes"], optional = true}
 
 [features]
 default = ["use-email-parser"]
