@@ -91,7 +91,8 @@ pub fn detect(content: &[u8]) -> Result<(Flags, Dictionary), ParseError> {
 
     let cursor = Cursor::new(content);
     let reader = BufReader::new(cursor);
-    let list = plist::Value::from_reader(reader).unwrap();
+    let list = plist::Value::from_reader(reader)
+        .map_err(|_| ParseError::InvalidPlistData("No Plist Data"))?;
     let dictionary = list.into_dictionary().ok_or(ParseError::InvalidPlistData(
         "Plist root is not a dictionary",
     ))?;
