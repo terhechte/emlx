@@ -1,6 +1,6 @@
 [package]
 name = "emlx"
-version = "0.1.5"
+version = "0.1.6"
 edition = "2018"
 authors = ["Benedikt Terhechte <terhechte@gmail.com>"]
 license = "MIT"
